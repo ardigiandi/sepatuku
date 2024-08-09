@@ -41,8 +41,8 @@ const LoginViews = () => {
         <div className="max-w-6xl mx-auto flex flex-col h-screen items-center justify-center">
             <h1 className="text-xl font-semibold">Login</h1>
             {error && <p className="text-base font-medium text-red-600 mt-2">{error}</p>}
-            <div className="border border-black mt-5 rounded-md">
-                <form onSubmit={handleSubmit} className="lg:px-10 px-5 py-5 gap-3 flex flex-col">
+            <div className="border border-black mt-5 rounded-md lg:px-10 px-5 py-5">
+                <form onSubmit={handleSubmit} className=" gap-3 flex flex-col">
                     <div className="flex flex-col gap-2">
                         <label htmlFor="email" className="text-base font-medium">Email</label>
                         <input type="email" name="email" id="email" className="border w-[300px] py-1 px-3 border-black rounded-sm" />
@@ -55,6 +55,9 @@ const LoginViews = () => {
                         {isLoading ? '...Loading' : 'Login'}
                     </button>
                 </form>
+                <div className="border w-full justify-center items-center flex px-8 mt-2 border-black py-1 rounded-sm bg-black">
+                    <button className="text-sm font-light text-white" type="button" onClick={() => signIn('google', { callbackUrl, redirect: false })}>Login With Google</button>
+                </div>
             </div>
             <p className="text-base font-semibold mt-4">Don{"'"}t have an account? Sign up <Link href="/auth/register" className="text-blue-600">here</Link></p>
         </div>

@@ -11,7 +11,7 @@ export async function signUp(
     },
     callback: Function
 ) {
-    const data = await retrieveDataByField("user", "email", userData.email);
+    const data = await retrieveDataByField("users", "email", userData.email);
 
     if (data.length > 0) {
         callback(false);
@@ -27,7 +27,7 @@ export async function signUp(
 }
 
 export async function signIn(email: string) {
-    const data = await retrieveDataByField("user", "email", email);
+    const data = await retrieveDataByField("users", "email", email);
 
     if (data) {
         return data[0];
@@ -43,7 +43,7 @@ export async function loginWithGoogle(
     },
     callback: Function
 ) {
-    const user = await retrieveDataByField("user", "email", data.email);
+    const user = await retrieveDataByField("users", "email", data.email);
 
     if (user.length > 0) {
         callback(user[0]);

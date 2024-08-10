@@ -40,10 +40,10 @@ const LoginViews = () => {
     }
 
     return (
-        <div className="max-w-6xl mx-auto flex flex-col h-screen items-center justify-center">
+        <div className="bg-slate-200 mx-auto flex flex-col h-screen items-center justify-center">
             <h1 className="text-xl font-semibold">Login</h1>
             {error && <p className="text-base font-medium text-red-600 mt-2">{error}</p>}
-            <div className="border border-black mt-5 rounded-md lg:px-10 px-5 py-5">
+            <div className="bg-white border border-black mt-5 rounded-md lg:px-10 px-5 py-5">
                 <form onSubmit={handleSubmit} className=" gap-3 flex flex-col">
                     <Input
                         label="Email"
@@ -57,14 +57,14 @@ const LoginViews = () => {
                     />
                     <Button
                         type="submit"
-                        className="text-base font-medium border mt-3 border-black py-1 rounded-sm cursor-pointer">
+                        className="text-base font-medium bg-black text-white border mt-3 py-1 rounded-sm cursor-pointer">
                         {isLoading ? '...Loading' : 'Login'}
                     </Button>
                 </form>
-                <div className="w-full justify-center items-center flex mt-3 border-black py-2 rounded-sm bg-black">
+                <div className="w-full justify-center items-center flex mt-3 border-black py-2 rounded-sm border">
                     <Button
                         type="button"
-                        onClick={() => signIn('google', { callbackUrl, redirect: false })} className="text-sm font-light text-white">
+                        onClick={() => signIn('google', { callbackUrl, redirect: false })} className="text-sm font-medium text-black">
                         Login With Google
                     </Button>
                 </div>

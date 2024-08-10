@@ -40,10 +40,10 @@ const RegisterViews = () => {
     }
 
     return (
-        <div className="max-w-6xl mx-auto flex flex-col h-screen items-center justify-center">
+        <div className="bg-slate-200 mx-auto flex flex-col h-screen items-center justify-center">
             <h1 className="text-xl font-semibold">Register</h1>
             {error && <p className="text-base font-medium text-red-600 mt-2">{error}</p>}
-            <div className="border border-black mt-5 rounded-md">
+            <div className="border bg-white border-black mt-5 rounded-md">
                 <form onSubmit={handleSubmit} className="lg:px-10 px-5 py-5 gap-3 flex flex-col">
                     <Input
                         label="Email"

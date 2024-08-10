@@ -17,7 +17,7 @@ const Input = (props: Proptypes) => {
             name={name} 
             id={name}
             placeholder={placeholder}
-            className="border w-[300px] py-1 px-3 border-black rounded-sm" />
+            className="border bg-slate-100 w-[300px] py-1 px-3 border-black rounded-sm" />
         </div>
     )
 }

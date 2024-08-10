@@ -4,6 +4,7 @@ import Link from "next/link"
 import { signIn } from "next-auth/react"
 import Input from "@/components/ui/input"
 import Button from "@/components/ui/button"
+import AuthLayout from "@/components/layouts/AuthLayout"
 
 const LoginViews = () => {
     const [isLoading, setIsLoading] = useState(false)
@@ -40,37 +41,35 @@ const LoginViews = () => {
     }
 
     return (
-        <div className="bg-slate-200 mx-auto flex flex-col h-screen items-center justify-center">
-            <h1 className="text-xl font-semibold">Login</h1>
-            {error && <p className="text-base font-medium text-red-600 mt-2">{error}</p>}
-            <div className="bg-white border border-black mt-5 rounded-md lg:px-10 px-5 py-5">
-                <form onSubmit={handleSubmit} className=" gap-3 flex flex-col">
-                    <Input
-                        label="Email"
-                        type="email"
-                        name="email"
-                    />
-                    <Input
-                        label="Password"
-                        type="password"
-                        name="password"
-                    />
-                    <Button
-                        type="submit"
-                        className="text-base font-medium bg-black text-white border mt-3 py-1 rounded-sm cursor-pointer">
-                        {isLoading ? '...Loading' : 'Login'}
-                    </Button>
-                </form>
-                <div className="w-full justify-center items-center flex mt-3 border-black py-2 rounded-sm border">
-                    <Button
-                        type="button"
-                        onClick={() => signIn('google', { callbackUrl, redirect: false })} className="text-sm font-medium text-black">
-                        Login With Google
-                    </Button>
-                </div>
+        <AuthLayout
+            title="Login"
+            link="/auth/register"
+            linkText="Don't have an account? Sign up">
+            <form onSubmit={handleSubmit} className=" gap-3 flex flex-col">
+                <Input
+                    label="Email"
+                    type="email"
+                    name="email"
+                />
+                <Input
+                    label="Password"
+                    type="password"
+                    name="password"
+                />
+                <Button
+                    type="submit"
+                    className="text-base font-medium bg-black text-white border mt-3 py-1 rounded-sm cursor-pointer">
+                    {isLoading ? '...Loading' : 'Login'}
+                </Button>
+            </form>
+            <div className="w-full justify-center items-center flex mt-3 border-black py-2 rounded-sm border">
+                <Button
+                    type="button"
+                    onClick={() => signIn('google', { callbackUrl, redirect: false })} className="text-sm font-medium text-black">
+                    Login With Google
+                </Button>
             </div>
-            <p className="text-base font-semibold mt-4">Don{"'"}t have an account? Sign up <Link href="/auth/register" className="text-blue-600">here</Link></p>
-        </div>
+        </AuthLayout>
     )
 }
 

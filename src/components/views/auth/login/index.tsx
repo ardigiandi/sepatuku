@@ -44,6 +44,7 @@ const LoginViews = () => {
         <AuthLayout
             title="Login"
             link="/auth/register"
+            error={error}
             linkText="Don't have an account? Sign up">
             <form onSubmit={handleSubmit} className=" gap-3 flex flex-col">
                 <Input

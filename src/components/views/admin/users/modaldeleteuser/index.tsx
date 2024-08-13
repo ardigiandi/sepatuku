@@ -1,12 +1,15 @@
 import Button from "@/components/ui/button"
 import userServices from "@/services/user"
 import Modal from "@/components/ui/modal"
+import { useSession } from "next-auth/react"
 
 const ModalDeleteUser = (props: any) => {
     const { deletedUser, setDeletedUser, setUsersData } = props
+    const session: any = useSession()
+    
 
     const handleDelete = async () => {
-        userServices.deleteUser(deletedUser.id)
+        userServices.deleteUser(deletedUser.id, session.data?.accessToken)
         setDeletedUser({})
         const { data } = await userServices.getAllUsers()
         setUsersData(data.data)

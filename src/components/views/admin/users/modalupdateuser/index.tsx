@@ -5,11 +5,14 @@ import Button from "@/components/ui/button"
 import { FormEvent } from "react"
 import { useState } from "react"
 import userServices from "@/services/user"
+import { useSession } from "next-auth/react"
 
 const ModalUpdateUser = (props: any) => {
 
     const { updatedUser, setUpdatedUser, setUsersData } = props
     const [isLoading, setIsLoading] = useState(false)
+    const session: any = useSession()
+    
 
     const handleUpdateUser = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
@@ -18,7 +21,7 @@ const ModalUpdateUser = (props: any) => {
         const data = {
             role: form.role.value
         }
-        const result = await userServices.updateUser(updatedUser.id, data)
+        const result = await userServices.updateUser(updatedUser.id, data, session.data?.accessToken)
 
 
         if (result.status === 200) {

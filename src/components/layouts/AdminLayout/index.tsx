@@ -15,6 +15,11 @@ const listSidebarItem = [
         url: '/admin/products',
         icon: 'bxs-box'
     },
+    {
+        title: 'Users',
+        url: '/admin/users',
+        icon: 'bxs-box'
+    },
 ]
 
 const AdminLayout = (props: PropTypes) => {
@@ -22,9 +27,9 @@ const AdminLayout = (props: PropTypes) => {
     const { children } = props
 
     return (
-        <div>
+        <div className="flex">
             <Sidebar lists={listSidebarItem} />
-            <div>
+            <div className="w-full p-10">
                 {children}
             </div>
         </div>

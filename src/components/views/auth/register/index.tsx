@@ -11,6 +11,7 @@ const RegisterViews = () => {
     const [error, setError] = useState('')
     const { push } = useRouter()
 
+
     const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault()
         setIsLoading(true)
@@ -34,7 +35,6 @@ const RegisterViews = () => {
             setError('Email is already registered')
         }
     }
-
     return (
         <AuthLayout title="Register" error={error} link="/auth/login" linkText="Have an account? sign in">
             <form onSubmit={handleSubmit} className="lg:px-10 px-5 py-5 gap-3 flex flex-col">

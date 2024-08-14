@@ -10,7 +10,7 @@ export default function Home() {
   
   return (
     <div>
-      <Link href="/member">klick</Link>
+
     </div>
   )
 }

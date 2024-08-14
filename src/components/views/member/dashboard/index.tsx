@@ -6,7 +6,6 @@ const DashboardMemberViews = () => {
         <MemberLayout>
             <div>
                 <div>
-                    <Link href="/">klick</Link>
                 </div>
             </div>
         </MemberLayout>

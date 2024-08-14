@@ -9,6 +9,7 @@ import {
 const onlyAdmin = ["admin"];
 const authPage = ["auth"];
 
+
 export default function withAuth(
   middleware: NextMiddleware,
   requireAuth: string[] = []

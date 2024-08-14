@@ -43,7 +43,6 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     } else if (req.method === 'DELETE') {
         const { user }: any = req.query
         const token = req.headers.authorization?.split(' ')[1] || ''
-        console.log(token)
         jwt.verify(token, process.env.NEXTAUTH_SECRET || '', async (error: any, decoded: any) => {
             if (decoded && decoded.role === 'admin') {
                 await deleteData('users', user[1], (result: boolean) => {

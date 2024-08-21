@@ -22,7 +22,7 @@ const Input = (props: Proptypes) => {
                 placeholder={placeholder}
                 defaultValue={defaultValue}
                 disabled={disabled}
-                className="border-2 bg-slate-100 py-1 px-3 border-black rounded-sm w-full" />
+                className="border bg-slate-100 py-1 px-3 border-black rounded-sm w-full" />
         </div>
     )
 }

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Sidebar from "@/components/fragments/sidebar";
 
 type PropTypes = {
@@ -24,23 +23,11 @@ const listSidebarItem = [
 ];
 
 const MemberLayout = ({ children }: PropTypes) => {
-    const [isSidebarOpen, setIsSidebarOpen] = useState(true);
 
     return (
         <div className="flex">
-            {/* Sidebar */}
-            {isSidebarOpen && <Sidebar lists={listSidebarItem} />}
-
+            <Sidebar lists={listSidebarItem} />
             <div className="flex-1 p-10">
-                {/* Toggle Button */}
-                <button
-                    onClick={() => setIsSidebarOpen(!isSidebarOpen)}
-                    className="p-2 bg-black text-white rounded-md mb-4"
-                >
-                    {isSidebarOpen ? 'Hide Sidebar' : 'Show Sidebar'}
-                </button>
-
-                {/* Main Content */}
                 {children}
             </div>
         </div>

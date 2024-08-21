@@ -7,14 +7,14 @@ export default async function handler(
   res: NextApiResponse
 ) {
   if (req.method === "GET") {
-    const token = req.headers.authorization?.split(' ')[1];
+    const token = req.headers.authorization?.split(" ")[1];
     if (token) {
       jwt.verify(
         token,
         process.env.NEXTAUTH_SECRET || "",
         async (err: any, decoded: any) => {
           if (decoded) {
-            const profile = await retrieveDataById('users', decoded.id)
+            const profile = await retrieveDataById("users", decoded.id);
             return res.status(200).json({
               status: true,
               statusCode: 200,

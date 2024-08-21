@@ -9,13 +9,13 @@ const ProfileMemberViews = ({ profile }: any) => {
             <h1 className="text-2xl font-semibold">Profile</h1>
             <div className=" flex flex-col lg:flex-row lg:items-start items-center gap-10 mt-10">
                 <div className="avatar lg:w-[30%] w-full py-5 border flex flex-col items-center justify-center px-5">
-                    {/* <Image
+                    <Image
                         src={profile.image}
                         alt="avatar"
                         width={200}
                         height={200}
                         priority={true}
-                        className="rounded-full" /> */}
+                        className="rounded-full" />
                     <label
                         className="mt-4 px-4 bg-gray-300 py-4"
                         htmlFor="upload-image">
